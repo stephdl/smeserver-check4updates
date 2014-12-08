@@ -11,7 +11,7 @@ Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 Requires: e-smith-base
-Requires: smeserver-release >= 9
+Requires: smeserver-release >= 8
 BuildRequires: e-smith-devtools
 BuildArchitectures: noarch
 
@@ -20,7 +20,7 @@ A rpm to check updates of external repositories
 
 %changelog
 * Mon Dec 8 2014 stephane de Labrusse <stephdl@de-labrusse.fr> 0.0.1-1.sme
-- Initial release to sme9
+- Initial release to sme8
 
 %prep
 %setup
