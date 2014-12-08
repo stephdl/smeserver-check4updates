@@ -4,9 +4,10 @@ mkdir -p /tmp/check4repositoriessupdates.$$
 TMPFILE=`mktemp /tmp/check4repositoriessupdates.$$/XXXXXXXXXX` || exit 1
 TMP1=`mktemp /tmp/check4repositoriessupdates.$$/XXXXXXXXXX` || exit 1
 repositories=$(/sbin/e-smith/db configuration getprop check4update repositories) || exit 1 
+excludes=$(/sbin/e-smith/db configuration getprop check4update excludes) || exit 1
 MAILADDR=$(/sbin/e-smith/db configuration getprop check4update emailaddress)|| exit 1
 
-yum -e 0 -d 0 check-update --disablerepo=* --enablerepo=$repositories > $TMP1
+yum -e 0 -d 0 check-update --disablerepo=* --enablerepo=$repositories --exclude=$excludes > $TMP1
 if [ $? = 100 ]; then
   echo -e "===\n=== yum reports available updates for $repositories :\n===" >> $TMPFILE
   cat $TMP1 >> $TMPFILE

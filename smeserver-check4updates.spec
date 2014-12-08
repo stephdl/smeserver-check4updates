@@ -2,8 +2,8 @@
 Summary: smeserver - check updates of external repositories
 %define name smeserver-check4updates
 Name: %{name}
-%define version 0.0.1
-%define release 1
+%define version 0.0.2
+%define release 1 
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
@@ -11,7 +11,7 @@ Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 Requires: e-smith-base
-Requires: smeserver-release >= 9
+Requires: smeserver-release >= 8
 BuildRequires: e-smith-devtools
 BuildArchitectures: noarch
 
@@ -19,8 +19,11 @@ BuildArchitectures: noarch
 A rpm to check updates of external repositories
 
 %changelog
+* Tue Dec 9 2014 stephane de Labrusse <stephdl@de-labrusse.fr> 0.0.2-1.sme
+- Added an exclude list of rpm
+
 * Mon Dec 8 2014 stephane de Labrusse <stephdl@de-labrusse.fr> 0.0.1-1.sme
-- Initial release to sme9
+- Initial release to sme8
 
 %prep
 %setup
