@@ -3,7 +3,7 @@ Summary: smeserver - check updates of external repositories
 %define name smeserver-check4updates
 Name: %{name}
 %define version 0.0.1
-%define release 1
+%define release 2
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
@@ -19,6 +19,9 @@ BuildArchitectures: noarch
 A rpm to check updates of external repositories
 
 %changelog
+* Tue Dec 9 2014 stephane de Labrusse <stephdl@de-labrusse.fr> 0.0.2-1.sme
+- Added an exclude list of rpm
+
 * Mon Dec 8 2014 stephane de Labrusse <stephdl@de-labrusse.fr> 0.0.1-1.sme
 - Initial release to sme9
 
