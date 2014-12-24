@@ -21,9 +21,8 @@
         $DB->new_record('check4updates' , \%defaults) 
         or die ("can not create check4updates key");
 
-    $DB->set_prop('repositories',"$repositories");
-    $DB->set_prop('excludes',"$excludes");
-    $DB->set_prop('emailaddress',"$emailaddress");
-    $DB->set_prop('frequence',"$frequence");
-
+    $check4updates->set_prop('repositories',"$repositories");
+    $check4updates->set_prop('excludes',"$excludes");
+    $check4updates->set_prop('emailaddress',"$emailaddress");
+    $check4updates->set_prop('frequence',"$frequence");
 }
