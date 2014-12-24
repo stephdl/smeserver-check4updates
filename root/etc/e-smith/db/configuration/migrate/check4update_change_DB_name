@@ -9,15 +9,14 @@
     my $check4updates = $DB->get(check4update) or return;
 
     my $repositories =  $DB->get_prop_and_delete('check4update','repositories') || '';
-    #my $type         =  $DB->get_prop_and_delete('check4update','type') || '';
     my $excludes     =  $DB->get_prop_and_delete('check4update','excludes') || '';
     my $emailaddress =  $DB->get_prop_and_delete('check4update','emailaddress') || '';
     my $frequence    =  $DB->get_prop_and_delete('check4update','frequence') || '';
 
     $check4updates->delete;
 
+    $DB->new_record('check4updates') or die ("can not create check4updates key");
     $DB->set_prop('check4updates',"$repositories");
-    #$DB->set_prop('check4updates',"$type");
     $DB->set_prop('check4updates',"$excludes");
     $DB->set_prop('check4updates',"$emailaddress");
     $DB->set_prop('check4updates',"$frequence");
