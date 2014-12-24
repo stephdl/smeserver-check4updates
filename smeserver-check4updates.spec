@@ -2,7 +2,7 @@
 Summary: smeserver - check updates of external repositories
 %define name smeserver-check4updates
 Name: %{name}
-%define version 0.0.2
+%define version 0.0.3
 %define release 1
 Version: %{version}
 Release: %{release}%{?dist}
@@ -19,6 +19,9 @@ BuildArchitectures: noarch
 A rpm to check updates of external repositories
 
 %changelog
+* Wed Dec 24 2014 stephane de Labrusse <stephdl@de-labrusse.fr> 0.0.3-1.sme
+- Changed the db name check4update to check4updates
+
 * Tue Dec 9 2014 stephane de Labrusse <stephdl@de-labrusse.fr> 0.0.2-1.sme
 - Added an exclude list of rpm
 
