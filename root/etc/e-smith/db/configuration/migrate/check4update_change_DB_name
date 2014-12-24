@@ -1,0 +1,28 @@
+{
+    #used for smeserver-check4updates-0.0.3-1
+    #only needed because I made a mistake on the db name 
+    #(check4update instead of check4updates)
+    use esmith::ConfigDB;
+
+    my $DB = esmith::ConfigDB->open or die ("can not open db configuration : $!");
+
+    my $check4update = $DB->get(check4update) or return;
+
+    my $repositories =  $DB->get_prop_and_delete('check4update','repositories') || '';
+    my $excludes     =  $DB->get_prop_and_delete('check4update','excludes')     || '';
+    my $emailaddress =  $DB->get_prop_and_delete('check4update','emailaddress') || '';
+    my $frequence    =  $DB->get_prop_and_delete('check4update','frequence')    || '';
+
+    $check4update->delete;
+
+    my %defaults = ('type' => 'configuration');
+
+    my $check4updates = $DB->get("check4updates") || 
+        $DB->new_record('check4updates' , \%defaults) 
+        or die ("can not create check4updates key");
+
+    $check4updates->set_prop('repositories',"$repositories");
+    $check4updates->set_prop('excludes',"$excludes");
+    $check4updates->set_prop('emailaddress',"$emailaddress");
+    $check4updates->set_prop('frequence',"$frequence");
+}
