@@ -15,7 +15,8 @@
 
     $check4updates->delete;
 
-    $DB->new_record('check4updates') or die ("can not create check4updates key");
+    my %defaults = ( ’type’    => ’configuration’);
+    $DB->new_record('check4updates' , \%defaults) or die ("can not create check4updates key");
     $DB->set_prop('check4updates',"$repositories");
     $DB->set_prop('check4updates',"$excludes");
     $DB->set_prop('check4updates',"$emailaddress");
