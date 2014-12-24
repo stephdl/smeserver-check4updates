@@ -6,7 +6,7 @@
 
     my $DB = esmith::ConfigDB->open or die ("can not open db configuration : $!");
 
-    my $check4updates = $DB->get(check4update) or return;
+    my $check4update = $DB->get(check4update) or return;
 
     my $repositories =  $DB->get_prop_and_delete('check4update','repositories') || '';
     my $excludes     =  $DB->get_prop_and_delete('check4update','excludes') || '';
@@ -16,7 +16,9 @@
     $check4updates->delete;
 
     my %defaults = ('type' => 'configuration');
-    $DB->new_record('check4updates' , \%defaults) or die ("can not create check4updates key");
+    my $check4updates = $DB->get("check4updates") || 
+        $DB->new_record('check4updates' , \%defaults) 
+        or die ("can not create check4updates key");
     $DB->set_prop('check4updates',"$repositories");
     $DB->set_prop('check4updates',"$excludes");
     $DB->set_prop('check4updates',"$emailaddress");
