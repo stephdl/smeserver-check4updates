@@ -13,7 +13,7 @@
     my $emailaddress =  $DB->get_prop_and_delete('check4update','emailaddress') || '';
     my $frequence    =  $DB->get_prop_and_delete('check4update','frequence') || '';
 
-    $check4updates->delete;
+    $check4update->delete;
 
     my %defaults = ('type' => 'configuration');
     my $check4updates = $DB->get("check4updates") || 
