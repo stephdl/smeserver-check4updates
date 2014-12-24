@@ -1,7 +1,7 @@
 {
-    return "\n# yum check for $check4update{repositories} updates is disabled\n" unless $yum{status} eq 'enabled';
+    return "\n# yum check for $check4updates{repositories} updates is disabled\n" unless $yum{status} eq 'enabled';
 
-    my $freq = $check4update{frequence} || 'daily';
+    my $freq = $check4updates{frequence} || 'daily';
 
     my $min;
     my $dom;
